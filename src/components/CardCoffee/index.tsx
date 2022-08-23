@@ -1,17 +1,33 @@
 import { ShoppingCart } from 'phosphor-react'
-import { CardContainer } from './styles'
+import {
+  CardContainer,
+  CoffeeDetails,
+  CoffeeTitle,
+  CoffeeSubTitle,
+  PriceAndAmountContainer,
+} from './styles'
 
-export function CardCoffee() {
+interface CoffeeProps {
+  url: string
+  details: string
+  title: string
+  subTitle: string
+}
+
+export function CardCoffee({ url, details, title, subTitle }: CoffeeProps) {
   return (
     <CardContainer>
-      <label>Tradicional</label>
-      <label>Expresso Tradicional</label>
-      <label>O tradicional café feito com água quente e grãos moídos </label>
-      <div>
-        <label>R$ 9,90</label>
+      <img src={url} alt="" />
+      <CoffeeDetails>{details}</CoffeeDetails>
+      <CoffeeTitle>{title}</CoffeeTitle>
+      <CoffeeSubTitle>{subTitle}</CoffeeSubTitle>
+      <PriceAndAmountContainer>
+        <label>
+          R$ <strong>9,90</strong>
+        </label>
         <input type="number" placeholder="1"></input>
-        <ShoppingCart size={24} weight="fill" />
-      </div>
+        <ShoppingCart size={24} weight="fill" color="#fff" />
+      </PriceAndAmountContainer>
     </CardContainer>
   )
 }
