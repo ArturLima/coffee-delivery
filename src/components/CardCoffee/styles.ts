@@ -77,8 +77,66 @@ export const PriceAndAmountContainer = styled.div`
     border-radius: 8px;
   }
 
+  button:last-child {
+    border: 0;
+    cursor: pointer;
+  }
+
+  button:last-child:hover {
+    border-color: ${(props) => props.theme['purple-light']};
+
+    svg {
+      border: 6px solid ${(props) => props.theme.purple};
+      background-color: ${(props) => props.theme.purple};
+    }
+  }
+`
+
+export const ButtonContainer = styled.div`
+  display: flex;
+
   input {
-    width: 72px;
-    height: 38px;
+    text-align: center;
+    width: 1.5rem;
+    height: 2.375rem;
+  }
+
+  button {
+    width: 2rem;
+    font-size: 25px;
+    text-align: center;
+    color: ${(props) => props.theme.purple};
+    cursor: pointer;
+  }
+
+  button,
+  input {
+    border: 0;
+    background: ${(props) => props.theme['base-button']};
+  }
+  input:focus {
+    outline: none;
+  }
+
+  button:first-child {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+  }
+
+  button:hover {
+    outline: none;
+    box-shadow: 0 0 0 2px ${(props) => props.theme['base-button']};
+  }
+
+  button:last-child {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+  }
+
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
 `

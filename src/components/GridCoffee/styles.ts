@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const CoffeContainer = styled.div`
+export const CoffeeContainer = styled.div`
   margin-top: 4rem;
   > label {
     font-family: 'Baloo 2';
