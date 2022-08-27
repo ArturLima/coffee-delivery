@@ -1,5 +1,7 @@
 import { ShoppingCart } from 'phosphor-react'
 import { useState } from 'react'
+import { toast } from 'react-toastify'
+import { useCart } from '../../hooks/useCart'
 import {
   CardContainer,
   CoffeeDetails,
@@ -10,6 +12,7 @@ import {
 } from './styles'
 
 interface CoffeeProps {
+  id: number
   url: string
   details: string
   price: string
@@ -18,12 +21,14 @@ interface CoffeeProps {
 }
 
 export function CardCoffee({
+  id,
   url,
   details,
   price,
   title,
   subTitle,
 }: CoffeeProps) {
+  const { addProduct } = useCart()
   const [amount, setAmount] = useState(0)
 
   function handleIncrementAmount() {
@@ -32,6 +37,18 @@ export function CardCoffee({
 
   function handleDecrementAmount() {
     if (amount > 0) setAmount(amount - 1)
+  }
+
+  async function handleAddProductToCart(productId: number) {
+    if (amount === 0) {
+      toast.error('Deve ser informado a quantidade', {
+        theme: 'colored',
+      })
+      return
+    }
+    await addProduct(productId, amount)
+
+    setAmount(0)
   }
 
   return (
@@ -49,7 +66,7 @@ export function CardCoffee({
           <input type="number" placeholder="0" value={amount} />
           <button onClick={handleIncrementAmount}>+</button>
         </ButtonContainer>
-        <button>
+        <button onClick={() => handleAddProductToCart(id)}>
           <ShoppingCart size={24} weight="fill" color="#fff" />
         </button>
       </PriceAndAmountContainer>

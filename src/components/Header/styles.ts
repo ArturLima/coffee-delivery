@@ -33,8 +33,38 @@ export const CityLabel = styled(BaseLabelHeader)`
   }
 `
 
-export const TrashLabel = styled(BaseLabelHeader)`
+export const CartLabel = styled(BaseLabelHeader)`
   background: ${(props) => props.theme['yellow-light']};
   color: ${(props) => props.theme['yellow-dark']};
   padding: 8px;
+
+  a {
+    background: ${(props) => props.theme['yellow-light']};
+    color: ${(props) => props.theme['yellow-dark']};
+  }
+`
+
+export const CartContainer = styled.div``
+
+export const Amount = styled.label`
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  margin-bottom: 40px;
+  margin-left: 28px;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+
+  background: ${(props) => props.theme['yellow-dark']};
+  color: ${(props) => props.theme.white};
+
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  border-radius: 25px;
+
+  padding: 4px 2px 0 2px;
 `
