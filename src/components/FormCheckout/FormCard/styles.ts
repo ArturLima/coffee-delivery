@@ -1,11 +1,7 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
-  display: block;
-`
-
 export const FormContainer = styled.div`
-  width: 40rem;
+  margin-top: 0.75rem;
   background: ${(props) => props.theme['base-card']};
   border-radius: 6px;
   padding: 2.625rem;
@@ -35,30 +31,32 @@ export const TitleForm = styled.div`
     color: ${(props) => props.theme['base-text']};
   }
 `
+export const Form = styled.div`
+  display: flex;
+  margin-top: 2rem;
+  justify-content: space-between;
 
-export const Form = styled.form`
-  display: grid;
+  button {
+    width: 11.167rem;
+    height: 3.188rem;
 
-  input {
-    margin-top: 1rem;
-    padding: 12px;
-    background: ${(props) => props.theme['base-input']};
-    border: 1px solid ${(props) => props.theme['base-button']};
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    text-transform: uppercase;
+
+    border: 0;
+
+    background: ${(props) => props.theme['base-button']};
     border-radius: 6px;
 
-    font-size: 14px;
-    font-weight: 400;
-    font-family: 'Roboto';
-    color: ${(props) => props.theme['base-label']};
+    color: ${(props) => props.theme['base-text']};
+
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-`
-
-export const NumberAndComplementContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-`
-
-export const DisctrictAndCityContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
 `
