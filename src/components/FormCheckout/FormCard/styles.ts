@@ -1,3 +1,4 @@
+import { darken, transparentize } from 'polished'
 import styled from 'styled-components'
 
 export const FormContainer = styled.div`
@@ -35,28 +36,46 @@ export const Form = styled.div`
   display: flex;
   margin-top: 2rem;
   justify-content: space-between;
+`
 
-  button {
-    width: 11.167rem;
-    height: 3.188rem;
+interface RadioBoxProps {
+  isActive: boolean
+  activeColor: 'purpleLight' | 'default'
+}
 
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    text-transform: uppercase;
+const colors = {
+  purpleLight: '#8047F8',
+  default: '#E52E4D',
+}
 
-    border: 0;
+export const RadioBox = styled.button<RadioBoxProps>`
+  width: 11.167rem;
+  height: 3.188rem;
 
-    background: ${(props) => props.theme['base-button']};
-    border-radius: 6px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  text-transform: uppercase;
 
-    color: ${(props) => props.theme['base-text']};
+  border: 0;
 
-    cursor: pointer;
+  border-radius: 6px;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  color: ${(props) => props.theme['base-text']};
+
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: ${(props) =>
+    props.isActive
+      ? transparentize(0.9, colors[props.activeColor])
+      : props.theme['base-button']};
+
+  &:hover {
+    border-color: ${darken(0.1, '#d7d7d7')};
   }
 `

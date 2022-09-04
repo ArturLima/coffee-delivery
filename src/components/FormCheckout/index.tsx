@@ -1,6 +1,7 @@
 import { MapPinLine } from 'phosphor-react'
 import { useState } from 'react'
 import { defaultTheme } from '../../styles/themes/default'
+import { cepMask } from '../../util/util'
 import { FormCard } from './FormCard'
 import {
   Form,
@@ -19,6 +20,7 @@ export function FormCheckout() {
   const [neighborhood, setNeighborhood] = useState('')
   const [city, setCity] = useState('')
   const [uf, setUf] = useState('')
+
   return (
     <Container>
       <FormContainer>
@@ -35,7 +37,7 @@ export function FormCheckout() {
             placeholder="CEP"
             style={{ width: '12.5rem' }}
             value={code}
-            onChange={(e) => setCode(e.target.value)}
+            onChange={(e) => setCode(cepMask(e.target.value))}
           />
           <input
             placeholder="Rua"
