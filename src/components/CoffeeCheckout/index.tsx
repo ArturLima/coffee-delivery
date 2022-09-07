@@ -63,7 +63,9 @@ export function CoffeeCheckout() {
           <TotalText>Total</TotalText>
           <TotalText>R$ {calculateTotal()}</TotalText>
         </div>
-        <button>Confirmar Pedido</button>
+        <a href="/completed">
+          <button> Confirmar Pedido</button>
+        </a>
       </TotalDetails>
     </CoffeeContainer>
   )
