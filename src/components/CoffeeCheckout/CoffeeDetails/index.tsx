@@ -38,7 +38,7 @@ export function CoffeeDetails({
           </ButtonRemove>
         </div>
       </div>
-      <text>{price}</text>
+      <text>R$ {price}</text>
     </CoffeeDetailsContainer>
   )
 }
